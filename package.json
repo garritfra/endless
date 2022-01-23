@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/garritfra/endless#readme",
   "devDependencies": {
+    "@types/three": "^0.136.1",
     "parcel": "^2.2.1"
   },
   "dependencies": {
