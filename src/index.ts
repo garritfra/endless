@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import createSkyboxTexture from "./skybox";
+import createPlayerTexture from "./player";
 
 let camera: THREE.Camera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;
 
@@ -27,14 +28,13 @@ function init() {
 
     // controls
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 20;
 
     // ambient light
     scene.add(new THREE.AmbientLight(0xffffff));
 
-    // point light
-    const light = new THREE.PointLight(0xffffff, 1, 20);
-    camera.add(light);
+    const dirLight = new THREE.DirectionalLight(0xffffff);
+    dirLight.position.set(0, 1, 0);
+    scene.add(dirLight);
 
     // helper
     scene.add(new THREE.AxesHelper(20));
@@ -43,7 +43,9 @@ function init() {
     const geometry = new THREE.BoxGeometry(10, 10, 10);
     const material = new THREE.MeshNormalMaterial();
     const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+
+    // Player
+    createPlayerTexture(scene);
 
     const skyboxMaterial = createSkyboxTexture("skybox_lightblue");
     scene.background = skyboxMaterial;
