@@ -4,7 +4,7 @@
   "description": "A 3d space game",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/index.html",
+    "start": "parcel public/index.html public/assets/**/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,7 +1,9 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-let group, camera, scene, renderer;
+import setupSkybox from "./skybox";
+
+let camera, scene, renderer;
 
 init();
 
@@ -41,8 +43,13 @@ function init() {
     const geometry = new THREE.BoxGeometry(10, 10, 10);
     const material = new THREE.MeshNormalMaterial();
     const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    //scene.add(cube);
+
+    const skybox = setupSkybox("skybox_lightblue");
+
+    scene.add(skybox);
 }
+
 
 function animate() {
     requestAnimationFrame(animate);
