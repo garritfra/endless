@@ -23,7 +23,7 @@ jobs:
         run: |
           npm run build
           touch dist/.nojekyll
-          echo "endless.slashdev.space" > CNAME
+          echo "endless.slashdev.space" > dist/CNAME
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
