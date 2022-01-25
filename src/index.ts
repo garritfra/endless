@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import "./styles.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import createSkyboxTexture from "./skybox";
